@@ -1,0 +1,53 @@
+.en# Binaries
+/bin/
+*.exe
+*.dll
+*.so
+*.dylib
+
+# Output directories
+/tmp/
+*.log
+
+# Dependency directories
+/node_modules/
+
+# Build and cache directories
+*.cache/
+*.out
+*.class
+*.war
+*.jar
+
+# Go build files
+*.exe
+*.out
+*.a
+*.o
+*.test
+
+# Project-specific
+/views/components/navigation_templ.go
+/views/home/index_templ.go
+/views/layouts/base_templ.go
+
+# Tailwind CSS cache and config files
+.tailwindcss/
+
+# Environment files
+.env
+.env.local
+.env.*.local
+
+# Editor and IDE specific files
+.vscode/
+.idea/
+*.sublime-workspace
+*.sublime-project
+
+# OS-specific files
+.DS_Store
+Thumbs.db
+
+# Git files
+.git/

@@ -1,0 +1,156 @@
+package home
+
+import "GOTH/views/layouts"
+
+templ Index() {
+	@layouts.Base() {
+		@Hero()
+		@TechStack()
+		@Projects()
+		@ContactForm()
+	}
+}
+
+templ Hero() {
+	<section class="hero h-screen flex flex-col justify-center items-center bg-gray-900 text-white">
+		<div class="text-left px-8">
+			<p class="text-xl">Hello, I'm</p>
+			<h1 class="text-4xl font-bold">Patrick Haahr</h1>
+			<h2 class="text-xl font-bold">a Software Developer</h2>
+		</div>
+	</section>
+}
+
+templ SvgLogo(src templ.SafeURL, alt string) {
+	<img
+		src={ string(src) }
+		alt={ alt }
+		fetchpriority="high"
+		width="80"
+		height="80"
+		decoding="async"
+		class="w-20 h-20"
+		style="color: transparent;"
+	/>
+}
+
+templ TechStack() {
+	<section class="tech-stack py-16 bg-gray-100 text-center">
+		<h2 class="text-3xl font-bold">Tech Stack</h2>
+		<div class="mt-8 flex justify-center space-x-4">
+			@SvgLogo(templ.SafeURL("/public/csharp.svg"), "C# Logo")
+			@SvgLogo(templ.SafeURL("/public/net.svg"), ".NET Logo")
+			@SvgLogo(templ.SafeURL("/public/html.svg"), "HTML5 Logo")
+			@SvgLogo(templ.SafeURL("/public/css.svg"), "CSS3 Logo")
+			@SvgLogo(templ.SafeURL("/public/javascript.svg"), "JavaScript Logo")
+			@SvgLogo(templ.SafeURL("/public/tailwind.svg"), "Tailwind Logo")
+			@SvgLogo(templ.SafeURL("/public/git.svg"), "git Logo")
+		</div>
+	</section>
+}
+
+templ ProjectCard(title, description string, imgURL templ.SafeURL, demoURL templ.SafeURL, codeURL templ.SafeURL) {
+	<div class="relative flex w-80 flex-col rounded-xl bg-white bg-clip-border text-gray-700 shadow-md">
+		<div class="relative mx-4 -mt-6 h-40 overflow-hidden rounded-xl bg-blue-gray-500 bg-clip-border text-white shadow-lg shadow-blue-gray-500/40 bg-gradient-to-r from-blue-500 to-blue-600">
+			<img
+				src={ string(imgURL) }
+				alt={ title + " Image" }
+				width="100%"
+				height="auto"
+				decoding="async"
+				class="w-full h-full object-cover"
+			/>
+		</div>
+		<div class="p-6">
+			<h5 class="mb-2 block font-sans text-xl font-semibold leading-snug tracking-normal text-blue-gray-900 antialiased">
+				{ title }
+			</h5>
+			<p class="block font-sans text-base font-light leading-relaxed text-inherit antialiased">
+				{ description }
+			</p>
+		</div>
+		<div class="p-6 pt-0 flex space-x-2">
+			<a href={ demoURL } target="_blank" rel="noopener noreferrer" class="select-none rounded-lg bg-blue-500 py-3 px-6 text-center align-middle font-sans text-xs font-bold uppercase text-white shadow-md shadow-blue-500/20 transition-all hover:shadow-lg hover:shadow-blue-500/40 focus:opacity-[0.85] focus:shadow-none active:opacity-[0.85] active:shadow-none disabled:pointer-events-none disabled:opacity-50 disabled:shadow-none">
+				View Demo
+			</a>
+			<a href={ codeURL } target="_blank" rel="noopener noreferrer" class="select-none rounded-lg bg-gray-500 py-3 px-6 text-center align-middle font-sans text-xs font-bold uppercase text-white shadow-md shadow-gray-500/20 transition-all hover:shadow-lg hover:shadow-gray-500/40 focus:opacity-[0.85] focus:shadow-none active:opacity-[0.85] active:shadow-none disabled:pointer-events-none disabled:opacity-50 disabled:shadow-none">
+				Code
+			</a>
+		</div>
+	</div>
+}
+
+templ Projects() {
+	<section id="projects" class="projects min-h-screen py-16 bg-white flex flex-col justify-center">
+		<h2 class="text-3xl font-bold text-center mb-8">Projects</h2>
+		<div class="flex flex-wrap justify-around">
+			@ProjectCard(
+				"Dating Web App",
+				"Made with C#, ASP.NET, and Tailwind CSS",
+				templ.SafeURL("/public/tinder.svg"),
+				templ.URL("#"),
+				templ.URL("https://github.com/patrickhaahr/DatingApp"),
+			)
+			@ProjectCard(
+				"Food Web App",
+				"Made with JavaScript, HTML, and CSS",
+				templ.SafeURL("/public/foodwebsite.png"),
+				templ.URL("#"),
+				templ.URL("https://github.com/patrickhaahr/FoodWebsite"),
+			)
+			@ProjectCard(
+				"Project 3",
+				"Description of Project 3",
+				templ.SafeURL("/public/images/sample3.jpg"),
+				templ.URL("#"),
+				templ.URL("#"),
+			)
+			@ProjectCard(
+				"Project 4",
+				"Description of Project 4",
+				templ.SafeURL("/public/images/sample4.jpg"),
+				templ.URL("#"),
+				templ.URL("#"),
+			)
+		</div>
+	</section>
+}
+
+templ ContactForm() {
+	<section id="contact-me" class="contact-me min-h-screen py-16 text-center bg-gray-800 text-black">
+		<div class="max-w-lg mx-auto bg-white p-6 rounded-xl shadow-lg">
+			<h2 class="text-3xl font-bold text-royalblue">Contact me</h2>
+			<form class="flex flex-col items-start gap-4 mt-4">
+				<input type="text" name="name" placeholder="Your Name" required class="outline-none border border-gray-300 p-2 rounded-lg w-full h-12"/>
+				<input type="email" name="email" placeholder="Your email" required class="outline-none border border-gray-300 p-2 rounded-lg w-full h-12"/>
+				<textarea name="message" placeholder="Your message" required class="outline-none border border-gray-300 p-2 rounded-lg w-full h-24 resize-none"></textarea>
+				<button
+					hx-get="/submit-form"
+					hx-swap="none"
+					class="self-start group cursor-pointer border-2 border-gray-300 bg-blue-500 py-2 px-4 font-bold rounded-xl shadow-md text-white"
+					type="button"
+				>
+					<div class="flex bg-blue-500 rounded-full px-4 py-3 shadow-inner">
+						<svg
+							stroke="currentColor"
+							stroke-width="1.5"
+							viewBox="0 0 24 24"
+							fill="none"
+							xmlns="http://www.w3.org/2000/svg"
+							class="size-6 -rotate-45 mr-1 group-hover:rotate-0 duration-300"
+						>
+							<path
+								d="M6 12 3.269 3.125A59.769 59.769 0 0 1 21.485 12 59.768 59.768 0 0 1 3.27 20.875L5.999 12Zm0 0h7.5"
+								stroke-linejoin="round"
+								stroke-linecap="round"
+							></path>
+						</svg>
+						<span class="group-hover:translate-x-1.5 group-hover:duration-300">
+							Send Message
+						</span>
+					</div>
+				</button>
+			</form>
+		</div>
+	</section>
+}
