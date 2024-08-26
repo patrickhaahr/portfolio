@@ -39,8 +39,8 @@ templ Navigation(isDarkMode bool) {
 				<!-- Theme Toggle Button -->
 				<button
 					hx-post="/toggle-icon"
-					hx-target="html"
-					hx-swap="class"
+					hx-trigger="click"
+					hx-swap="none"
 					class="inline-flex items-center justify-center whitespace-nowrap text-sm font-medium transition-colors focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:pointer-events-none disabled:opacity-50 hover:bg-accent hover:text-accent-foreground h-9 w-9 rounded-full px-2"
 					type="button"
 				>
@@ -58,7 +58,7 @@ templ Navigation(isDarkMode bool) {
 }
 
 templ Footer() {
-	<footer class="bg-gray-100 dark:bg-gray-900 dark:text-white text-black p-4">
+	<footer class="bg-gray-100 dark:bg-gray-800 dark:text-white text-black p-4">
 		<div class="flex justify-between">
 			<!-- Contact Me Section -->
 			<div>

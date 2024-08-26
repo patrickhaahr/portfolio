@@ -27,11 +27,6 @@ func ToggleIcon(w http.ResponseWriter, r *http.Request) error {
 		Path:  "/",
 	})
 
-	// Return the class to be toggled
-	if isDarkMode {
-		w.Write([]byte("dark"))
-	} else {
-		w.Write([]byte(""))
-	}
-	return nil
+	// Re-render the entire page with the new theme
+	return HandleHome(w, r)
 }

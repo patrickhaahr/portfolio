@@ -35,7 +35,7 @@ templ SvgLogo(src templ.SafeURL, alt string) {
 }
 
 templ TechStack() {
-	<section id="projects" class="tech-stack py-16 bg-white text-center">
+	<section id="projects" class="tech-stack py-16 bg-white dark:bg-gray-800 text-black dark:text-white text-center">
 		<h2 class="text-3xl font-bold">Tech Stack</h2>
 		<div class="mt-8 flex justify-center space-x-4">
 			@SvgLogo(templ.SafeURL("/public/csharp.svg"), "C# Logo")
@@ -50,7 +50,7 @@ templ TechStack() {
 }
 
 templ ProjectCard(title, description string, imgURL templ.SafeURL, demoURL templ.SafeURL, codeURL templ.SafeURL) {
-	<div class="relative flex w-80 flex-col rounded-xl bg-white bg-clip-border text-gray-700 shadow-md h-[400px]">
+	<div class="relative flex w-80 flex-col rounded-xl bg-white dark:bg-gray-800 dark:text-white bg-clip-border text-gray-700 shadow-md h-[400px]">
 		<div class="relative mx-4 -mt-6 h-40 overflow-hidden rounded-xl bg-blue-gray-500 bg-clip-border text-white shadow-lg shadow-blue-gray-500/40 bg-gradient-to-r from-blue-500 to-blue-600">
 			<img src={ string(imgURL) } alt={ title + " Image" } width="100%" height="auto" decoding="async" class="w-full h-full object-cover"/>
 		</div>
@@ -74,7 +74,7 @@ templ ProjectCard(title, description string, imgURL templ.SafeURL, demoURL templ
 }
 
 templ Projects() {
-	<section class="projects py-16 bg-white flex flex-col justify-center">
+	<section class="projects py-16 bg-white dark:bg-gray-900 text-black dark:text-white flex flex-col justify-center">
 		<div class="flex flex-wrap justify-around">
 			@ProjectCard(
 				"Dating Web App",
