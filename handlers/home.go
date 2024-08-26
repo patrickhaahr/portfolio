@@ -1,15 +1,17 @@
 package handlers
 
 import (
-	"GOTH/theme"
 	"GOTH/views/home"
 	"net/http"
-
-	"github.com/a-h/templ"
+	"strconv"
 )
 
 func HandleHome(w http.ResponseWriter, r *http.Request) error {
-	return Render(w, r, home.Index())
+	cookie, err := r.Cookie("darkMode")
+	if err == nil {
+		isDarkMode, _ = strconv.ParseBool(cookie.Value)
+	}
+	return Render(w, r, home.Index(isDarkMode))
 }
 
 var isDarkMode bool // Track the toggle state globally
@@ -17,11 +19,19 @@ var isDarkMode bool // Track the toggle state globally
 // ToggleIcon toggles between two icons and renders the correct one.
 func ToggleIcon(w http.ResponseWriter, r *http.Request) error {
 	isDarkMode = !isDarkMode // Toggle the state
-	var icon templ.Component
+
+	// Set a cookie to remember the user's preference
+	http.SetCookie(w, &http.Cookie{
+		Name:  "darkMode",
+		Value: strconv.FormatBool(isDarkMode),
+		Path:  "/",
+	})
+
+	// Return the class to be toggled
 	if isDarkMode {
-		icon = theme.DarkModeIcon()
+		w.Write([]byte("dark"))
 	} else {
-		icon = theme.LightModeIcon()
+		w.Write([]byte(""))
 	}
-	return icon.Render(r.Context(), w)
+	return nil
 }

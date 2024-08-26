@@ -2,8 +2,8 @@ package home
 
 import "GOTH/views/layouts"
 
-templ Index() {
-	@layouts.Base() {
+templ Index(isDarkMode bool) {
+	@layouts.Base(isDarkMode) {
 		@Hero()
 		@TechStack()
 		@Projects()
@@ -12,7 +12,7 @@ templ Index() {
 }
 
 templ Hero() {
-	<section class="hero h-screen flex flex-col justify-center items-center bg-white text-black">
+	<section class="hero h-screen flex flex-col justify-center items-center bg-white dark:bg-gray-900 text-black dark:text-white">
 		<div class="text-left px-8">
 			<p class="text-xl">Hello, I'm</p>
 			<h1 class="text-4xl font-bold">Patrick Haahr</h1>
@@ -109,13 +109,13 @@ templ Projects() {
 }
 
 templ ContactForm() {
-	<section id="contact-me" class="contact-me py-16 bg-white text-black">
-		<div class="max-w-lg mx-auto bg-white p-6 rounded-xl shadow-lg">
+	<section id="contact-me" class="contact-form py-16 bg-white dark:bg-gray-900 text-black dark:text-white">
+		<div class="max-w-lg mx-auto bg-white dark:bg-gray-800 p-6 rounded-xl shadow-lg">
 			<h2 class="text-3xl font-bold text-royalblue">Contact me</h2>
 			<form class="flex flex-col items-start gap-4 mt-4">
-				<input type="text" name="name" placeholder="Your Name" required class="outline-none border border-gray-300 p-2 rounded-lg w-full h-12"/>
-				<input type="email" name="email" placeholder="Your email" required class="outline-none border border-gray-300 p-2 rounded-lg w-full h-12"/>
-				<textarea name="message" placeholder="Your message" required class="outline-none border border-gray-300 p-2 rounded-lg w-full h-24 resize-none"></textarea>
+				<input type="text" name="name" placeholder="Your Name" required class="outline-none border border-gray-300 p-2 rounded-lg w-full h-12" autocomplete="name"/>
+				<input type="email" name="email" placeholder="Your email" required class="outline-none border border-gray-300 p-2 rounded-lg w-full h-12" autocomplete="email"/>
+				<textarea name="message" placeholder="Your message" required class="outline-none border border-gray-300 p-2 rounded-lg w-full h-24 resize-none" autocomplete="off"></textarea>
 				<button
 					hx-get="/submit-form"
 					hx-swap="none"
