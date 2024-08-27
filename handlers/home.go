@@ -27,6 +27,9 @@ func ToggleIcon(w http.ResponseWriter, r *http.Request) error {
 		Path:  "/",
 	})
 
-	// Re-render the entire page with the new theme
-	return HandleHome(w, r)
+	// Send a custom header to trigger a full page reload
+	w.Header().Set("HX-Refresh", "true")
+
+	// Render the entire page
+	return Render(w, r, home.Index(isDarkMode))
 }
