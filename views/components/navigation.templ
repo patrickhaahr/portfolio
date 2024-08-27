@@ -2,8 +2,8 @@ package components
 
 import "GOTH/theme"
 
-templ Navigation() {
-	<nav class="sticky top-0 z-50 bg-gray-100 p-4 text-black">
+templ Navigation(isDarkMode bool) {
+	<nav class="sticky top-0 z-50 bg-gray-100 dark:bg-gray-800 p-4 text-black dark:text-white">
 		<div class="flex justify-between items-center">
 			<!-- Left side (Logo or Main Item) -->
 			<div>
@@ -39,13 +39,17 @@ templ Navigation() {
 				<!-- Theme Toggle Button -->
 				<button
 					hx-post="/toggle-icon"
-					hx-target="#theme-icon"
-					hx-swap="outerHTML"
+					hx-target="html"
+					hx-swap="none"
 					class="inline-flex items-center justify-center whitespace-nowrap text-sm font-medium transition-colors focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:pointer-events-none disabled:opacity-50 hover:bg-accent hover:text-accent-foreground h-9 w-9 rounded-full px-2"
 					type="button"
 				>
 					<div id="theme-icon">
-						@theme.LightModeIcon()
+						if isDarkMode {
+							@theme.DarkModeIcon()
+						} else {
+							@theme.LightModeIcon()
+						}
 					</div>
 				</button>
 			</div>
@@ -54,11 +58,11 @@ templ Navigation() {
 }
 
 templ Footer() {
-	<footer class="bg-gray-100 text-black p-4">
+	<footer class="bg-gray-100 dark:bg-gray-800 dark:text-white text-black p-4">
 		<div class="flex justify-between">
 			<!-- Contact Me Section -->
 			<div>
-				<h2 class="text-black font-bold">Contact Me</h2>
+				<h2 class="text-black dark:text-white font-bold">Contact Me</h2>
 				<ul class="mt-2 space-y-1">
 					<!-- Email Icon and Text -->
 					<li class="flex items-center space-x-2 relative group">
@@ -68,8 +72,8 @@ templ Footer() {
 								<path d="M22 6l-10 7L2 6"></path>
 							</svg>
 						</a>
-						<span class="hover:text-blue-500">patrick@haahr.me</span>
-						<span class="absolute -top-10 left-[50%] -translate-x-[50%] z-20 origin-left scale-0 px-3 rounded-lg border border-gray-300 bg-white py-2 text-sm font-bold shadow-md transition-all duration-300 ease-in-out group-hover:scale-100">
+						<span class="hover:text-blue-500 dark:hover:text-blue-300">patrick@haahr.me</span>
+						<span class="absolute -top-10 left-[50%] -translate-x-[50%] z-20 origin-left scale-0 px-3 rounded-lg border border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-800 py-2 text-sm font-bold shadow-md transition-all duration-300 ease-in-out group-hover:scale-100">
 							Email
 						</span>
 					</li>
@@ -77,7 +81,7 @@ templ Footer() {
 			</div>
 			<!-- Follow Me Section -->
 			<div>
-				<h2 class="text-black font-bold mb-2">Follow Me</h2>
+				<h2 class="text-black dark:text-white font-bold mb-2">Follow Me</h2>
 				<ul class="flex space-x-4 list-none">
 					<!-- GitHub Icon -->
 					<li class="relative group">
@@ -97,7 +101,7 @@ templ Footer() {
 							</svg>
 						</a>
 						<span
-							class="absolute -top-10 left-[50%] -translate-x-[50%] z-20 origin-left scale-0 px-3 rounded-lg border border-gray-300 bg-white py-2 text-sm font-bold shadow-md transition-all duration-300 ease-in-out group-hover:scale-100"
+							class="absolute -top-10 left-[50%] -translate-x-[50%] z-20 origin-left scale-0 px-3 rounded-lg border border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-800 py-2 text-sm font-bold shadow-md transition-all duration-300 ease-in-out group-hover:scale-100"
 						>
 							GitHub
 						</span>
@@ -117,7 +121,7 @@ templ Footer() {
 							</svg>
 						</a>
 						<span
-							class="absolute -top-10 left-[50%] -translate-x-[50%] z-20 origin-left scale-0 px-3 rounded-lg border border-gray-300 bg-white py-2 text-sm font-bold shadow-md transition-all duration-300 ease-in-out group-hover:scale-100"
+							class="absolute -top-10 left-[50%] -translate-x-[50%] z-20 origin-left scale-0 px-3 rounded-lg border border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-800 py-2 text-sm font-bold shadow-md transition-all duration-300 ease-in-out group-hover:scale-100"
 						>
 							LinkedIn
 						</span>
@@ -128,8 +132,8 @@ templ Footer() {
 			<div class="space-y-4">
 				<div class="flex items-center space-x-2">
 					<div>
-						<h2 class="text-black font-bold">My Projects</h2>
-						<p class="text-gray-500">Explore Projects</p>
+						<h2 class="text-black dark:text-white font-bold">My Projects</h2>
+						<p class="text-gray-500 dark:text-gray-400">Explore Projects</p>
 					</div>
 					<a href="/#projects" class="text-green-400 text-2xl hover:text-green-300">→</a>
 				</div>
