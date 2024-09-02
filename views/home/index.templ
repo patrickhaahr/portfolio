@@ -35,7 +35,7 @@ templ SvgLogo(src templ.SafeURL, alt string) {
 }
 
 templ TechStack() {
-	<section id="projects" class="tech-stack py-16 bg-white dark:bg-gray-800 text-black dark:text-white text-center">
+	<section id="projects" class="tech-stack py-16 bg-white dark:bg-gray-900 text-black dark:text-white text-center">
 		<h2 class="text-3xl font-bold">Tech Stack</h2>
 		<div class="mt-8 flex justify-center space-x-4">
 			@SvgLogo(templ.SafeURL("/public/csharp.svg"), "C# Logo")
@@ -112,7 +112,7 @@ templ ContactForm() {
 	<section id="contact-me" class="contact-form py-16 bg-white dark:bg-gray-900 text-black dark:text-white">
 		<div class="max-w-lg mx-auto bg-white dark:bg-gray-800 p-6 rounded-xl shadow-lg">
 			<h2 class="text-3xl font-bold text-royalblue">Contact me</h2>
-			<form class="flex flex-col items-start gap-4 mt-4">
+			<form class="flex flex-col items-start gap-4 mt-4" hx-post="/submit-form" hx-target="#alert-modal" hx-swap="innerHTML">
 				<input
 					type="text"
 					name="name"
@@ -126,6 +126,7 @@ templ ContactForm() {
 					name="email"
 					placeholder="Your email"
 					required
+					pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$"
 					class="outline-none border border-gray-300 dark:border-gray-600 p-2 rounded-lg w-full h-12 bg-white dark:bg-gray-700 text-black dark:text-white"
 					autocomplete="email"
 				/>
@@ -137,10 +138,8 @@ templ ContactForm() {
 					autocomplete="off"
 				></textarea>
 				<button
-					hx-get="/submit-form"
-					hx-swap="none"
 					class="self-start group cursor-pointer border-2 border-gray-300 dark:border-gray-600 bg-blue-500 py-2 px-4 font-bold rounded-xl shadow-md text-white"
-					type="button"
+					type="submit"
 				>
 					<div class="flex bg-blue-500 rounded-full px-3 py-2 shadow-inner">
 						<svg
@@ -163,6 +162,17 @@ templ ContactForm() {
 					</div>
 				</button>
 			</form>
+			<div id="alert-modal"></div>
 		</div>
 	</section>
+}
+
+templ Alert(isSuccess bool, message string) {
+	<div class="fixed inset-0 flex items-center justify-center">
+		<div class="relative w-full max-w-md rounded-lg bg-white dark:bg-gray-800">
+			<p class="mt-2 text-gray-600 dark:text-gray-300 p-2">
+				{ message }
+			</p>
+		</div>
+	</div>
 }

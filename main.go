@@ -20,6 +20,7 @@ func main() {
 	router.Handle("/*", public())
 	router.Get("/", handlers.Make(handlers.HandleHome))
 	router.Post("/toggle-icon", handlers.Make(handlers.ToggleIcon)) // Add this line for the toggle icon route
+	router.Post("/submit-form", handlers.Make(handlers.HandleContactForm))
 
 	listenAddr := os.Getenv("LISTEN_ADDR")
 	slog.Info("HTTP server started", "listenAddr", listenAddr)
