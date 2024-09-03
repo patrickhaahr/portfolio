@@ -55,6 +55,17 @@ module.exports = {
             'box-shadow': '0 0 0px 1000px rgb(7 89 133 / var(--tw-bg-opacity)) inset',
           },
         },
+        '.flex-important': {
+          display: 'flex !important',
+        },
+        '.hidden-xs-flex': {
+          '@media (max-width: 499px)': {
+            display: 'none !important',
+          },
+          '@media (min-width: 500px)': {
+            display: 'flex !important',
+          },
+        },
       });
     },
   ],
