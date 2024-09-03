@@ -3,7 +3,7 @@ package components
 import "GOTH/theme"
 
 templ Navigation(isDarkMode bool) {
-	<nav class="sticky top-0 z-50 bg-gray-100 dark:bg-gray-800 p-4 text-black dark:text-white">
+	<nav class="sticky top-0 z-50 bg-gray-100 dark:bg-sky-950 p-4 text-black dark:text-white">
 		<div class="flex justify-between items-center">
 			<!-- Left side (Logo or Main Item) -->
 			<div>
@@ -58,7 +58,7 @@ templ Navigation(isDarkMode bool) {
 }
 
 templ Footer() {
-	<footer class="bg-gray-100 dark:bg-gray-800 dark:text-white text-black p-4">
+	<footer class="bg-gray-100 dark:bg-sky-950 dark:text-white text-black p-4">
 		<div class="flex justify-between">
 			<!-- Contact Me Section -->
 			<div>
@@ -129,7 +129,7 @@ templ Footer() {
 				</ul>
 			</div>
 			<!-- My Projects Section -->
-			<div class="space-y-4">
+			<div class="space-y-4 hidden xs:block-important">
 				<div class="flex items-center space-x-2">
 					<div>
 						<h2 class="text-black dark:text-white font-bold">My Projects</h2>

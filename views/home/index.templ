@@ -12,9 +12,7 @@ templ Index(isDarkMode bool) {
 }
 
 templ Hero() {
-	<section class="hero flex flex-col justify-center items-center bg-white dark:bg-gray-900 text-black dark:text-white" style="padding-top: 13rem !important; padding-bottom: 11rem !important;">
-		<!-- Adjusted height to account for padding -->
-		<!-- Added inline styles for padding -->
+	<section class="hero flex flex-col justify-center items-center bg-white dark:bg-sky-800 text-black dark:text-white pt-52-important pb-44-important">
 		<div class="text-left px-8">
 			<p class="text-xl">Hello, I'm</p>
 			<h1 class="text-4xl font-bold">Patrick Haahr</h1>
@@ -37,7 +35,7 @@ templ SvgLogo(src templ.SafeURL, alt string) {
 }
 
 templ TechStack() {
-	<section id="projects" class="tech-stack py-16 bg-white dark:bg-gray-900 text-black dark:text-white text-center">
+	<section id="projects" class="tech-stack py-16-important bg-white dark:bg-sky-800 text-black dark:text-white text-center">
 		<h2 class="text-3xl font-bold">Tech Stack</h2>
 		<div class="mt-8 flex justify-center space-x-4">
 			@SvgLogo(templ.SafeURL("/public/csharp.svg"), "C# Logo")
@@ -52,7 +50,7 @@ templ TechStack() {
 }
 
 templ ProjectCard(title, description string, imgURL templ.SafeURL, demoURL templ.SafeURL, codeURL templ.SafeURL) {
-	<div class="relative flex w-80 flex-col rounded-xl bg-white dark:bg-gray-800 dark:text-white bg-clip-border text-gray-700 shadow-md h-[400px]">
+	<div class="relative flex w-80 flex-col rounded-xl bg-white dark:bg-sky-900 dark:text-white bg-clip-border text-gray-700 shadow-md h-[400px]">
 		<div class="relative mx-4 -mt-6 h-40 overflow-hidden rounded-xl bg-blue-gray-500 bg-clip-border text-white shadow-lg shadow-blue-gray-500/40 bg-gradient-to-r from-blue-500 to-blue-600">
 			<img src={ string(imgURL) } alt={ title + " Image" } width="100%" height="auto" decoding="async" class="w-full h-full object-cover"/>
 		</div>
@@ -68,7 +66,7 @@ templ ProjectCard(title, description string, imgURL templ.SafeURL, demoURL templ
 			<a href={ demoURL } target="_blank" rel="noopener noreferrer" class="select-none rounded-lg bg-blue-500 py-3 px-6 text-center align-middle font-sans text-xs font-bold uppercase text-white shadow-md shadow-blue-500/20 transition-all hover:shadow-lg hover:shadow-blue-500/40 focus:opacity-[0.85] focus:shadow-none active:opacity-[0.85] active:shadow-none disabled:pointer-events-none disabled:opacity-50 disabled:shadow-none">
 				View Demo
 			</a>
-			<a href={ codeURL } target="_blank" rel="noopener noreferrer" class="select-none rounded-lg bg-gray-500 py-3 px-6 text-center align-middle font-sans text-xs font-bold uppercase text-white shadow-md shadow-gray-500/20 transition-all hover:shadow-lg hover:shadow-gray-500/40 focus:opacity-[0.85] focus:shadow-none active:opacity-[0.85] active:shadow-none disabled:pointer-events-none disabled:opacity-50 disabled:shadow-none">
+			<a href={ codeURL } target="_blank" rel="noopener noreferrer" class="select-none rounded-lg bg-gray-500 dark:bg-sky-950 py-3 px-6 text-center align-middle font-sans text-xs font-bold uppercase text-white shadow-md shadow-gray-500/20 transition-all hover:shadow-lg hover:shadow-gray-500/40 focus:opacity-[0.85] focus:shadow-none active:opacity-[0.85] active:shadow-none disabled:pointer-events-none disabled:opacity-50 disabled:shadow-none">
 				Code
 			</a>
 		</div>
@@ -76,8 +74,8 @@ templ ProjectCard(title, description string, imgURL templ.SafeURL, demoURL templ
 }
 
 templ Projects() {
-	<section class="projects py-16 bg-white dark:bg-gray-900 text-black dark:text-white flex flex-col justify-center">
-		<div class="flex flex-wrap justify-around">
+	<section class="projects py-16 pb-32-important bg-white dark:bg-sky-800 text-black dark:text-white flex flex-col justify-center">
+		<div class="flex flex-wrap justify-around gap-8">
 			@ProjectCard(
 				"Dating Web App",
 				"Responsive dating app made with C#, ASP.NET, and Tailwind",
@@ -111,16 +109,16 @@ templ Projects() {
 }
 
 templ ContactForm() {
-	<section id="contact-me" class="contact-form bg-white dark:bg-gray-900 text-black dark:text-white" style="padding-top: 6rem !important; padding-bottom: 6rem !important;">
-		<div class="max-w-lg mx-auto bg-white dark:bg-gray-800 p-6 rounded-xl shadow-lg">
+	<section id="contact-me" class="contact-form bg-white dark:bg-sky-800 text-black dark:text-white py-24-important relative">
+		<div class="max-w-lg mx-auto bg-white dark:bg-sky-900 p-6 rounded-xl shadow-lg">
 			<h2 class="text-3xl font-bold text-royalblue">Contact me</h2>
-			<form class="flex flex-col items-start gap-4 mt-4" hx-post="/submit-form" hx-target="#alert-modal" hx-swap="innerHTML">
+			<form class="flex flex-col items-start gap-4 mt-4" hx-post="/submit-form" hx-target="body" hx-swap="afterbegin">
 				<input
 					type="text"
 					name="name"
 					placeholder="Your Name"
 					required
-					class="outline-none border border-gray-300 dark:border-gray-600 p-2 rounded-lg w-full h-12 bg-white dark:bg-gray-700 text-black dark:text-white"
+					class="outline-none border border-gray-300 dark:border-sky-950 p-2 rounded-lg w-full h-12 bg-white dark:bg-sky-800 text-black dark:text-white dark-autofill"
 					autocomplete="name"
 				/>
 				<input
@@ -129,18 +127,18 @@ templ ContactForm() {
 					placeholder="Your email"
 					required
 					pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$"
-					class="outline-none border border-gray-300 dark:border-gray-600 p-2 rounded-lg w-full h-12 bg-white dark:bg-gray-700 text-black dark:text-white"
+					class="outline-none border border-gray-300 dark:border-sky-950 p-2 rounded-lg w-full h-12 bg-white dark:bg-sky-800 text-black dark:text-white dark-autofill"
 					autocomplete="email"
 				/>
 				<textarea
 					name="message"
 					placeholder="Your message"
 					required
-					class="outline-none border border-gray-300 dark:border-gray-600 p-2 rounded-lg w-full h-24 resize-none bg-white dark:bg-gray-700 text-black dark:text-white"
+					class="outline-none border border-gray-300 dark:border-sky-950 p-2 rounded-lg w-full h-24 resize-none bg-white dark:bg-sky-800 text-black dark:text-white dark-autofill"
 					autocomplete="off"
 				></textarea>
 				<button
-					class="self-start group cursor-pointer border-2 border-gray-300 dark:border-gray-600 bg-blue-500 py-2 px-4 font-bold rounded-xl shadow-md text-white"
+					class="self-start group cursor-pointer border-2 border-gray-300 bg-blue-500 py-2 px-4 font-bold rounded-xl shadow-md text-white"
 					type="submit"
 				>
 					<div class="flex bg-blue-500 rounded-full px-3 py-2 shadow-inner">
@@ -164,15 +162,36 @@ templ ContactForm() {
 					</div>
 				</button>
 			</form>
-			<div id="alert-modal"></div>
 		</div>
+		<div id="alert-modal-container"></div>
 	</section>
 }
 
 templ Alert(isSuccess bool, message string) {
-	<div class="fixed inset-0 flex items-center justify-center">
-		<div class="relative w-full max-w-md rounded-lg bg-white dark:bg-gray-800">
-			<p class="mt-2 text-gray-600 dark:text-gray-300 p-2">
+	<div
+		id="alert-modal"
+		class="fixed top-20 left-1/2 transform -translate-x-1/2 z-50"
+		hx-target="this"
+		hx-swap="outerHTML"
+		hx-trigger="click from:body"
+		hx-get="/close-modal"
+	>
+		<div
+			class="relative w-full max-w-md rounded-lg bg-white dark:bg-gray-800 p-6 shadow-xl"
+			hx-stop-propagation="click"
+			onclick="event.stopPropagation();"
+		>
+			<button
+				class="absolute top-2 right-2 text-gray-500 hover:text-gray-700 dark:text-gray-400 dark:hover:text-gray-200"
+				hx-get="/close-modal"
+				hx-target="#alert-modal"
+				hx-swap="outerHTML"
+			>
+				<svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+					<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+				</svg>
+			</button>
+			<p class={ templ.KV("text-green-600 dark:text-green-400", isSuccess), templ.KV("text-red-600 dark:text-red-400", !isSuccess), "pr-8" }>
 				{ message }
 			</p>
 		</div>

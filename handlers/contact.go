@@ -1,7 +1,9 @@
 package handlers
 
 import (
+	"context"
 	"fmt"
+	"io"
 	"log"
 	"net/http"
 	"os"
@@ -9,6 +11,7 @@ import (
 
 	"GOTH/views/home" // Import the home package to access the Alert template
 
+	"github.com/a-h/templ"
 	"github.com/joho/godotenv"
 	"github.com/sendgrid/sendgrid-go"
 	"github.com/sendgrid/sendgrid-go/helpers/mail"
@@ -45,4 +48,10 @@ func HandleContactForm(w http.ResponseWriter, r *http.Request) error {
 	}
 
 	return Render(w, r, home.Alert(true, "Your message has been sent successfully!"))
+}
+func CloseModal(w http.ResponseWriter, r *http.Request) error {
+	return Render(w, r, templ.ComponentFunc(func(ctx context.Context, w io.Writer) error {
+		_, err := w.Write([]byte(""))
+		return err
+	}))
 }
