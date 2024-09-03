@@ -66,6 +66,20 @@ module.exports = {
             display: 'flex !important',
           },
         },
+        '.carousel': {
+          'overflow-x': 'auto',
+          'scroll-snap-type': 'x mandatory',
+          'scroll-behavior': 'smooth',
+          '-webkit-overflow-scrolling': 'touch',
+        },
+        '.carousel-inner': {
+          'display': 'flex',
+          'flex-wrap': 'nowrap',
+        },
+        '.carousel-item': {
+          'flex': '0 0 auto',
+          'scroll-snap-align': 'center',
+        },
       });
     },
   ],

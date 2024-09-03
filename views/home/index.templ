@@ -29,24 +29,36 @@ templ SvgLogo(src templ.SafeURL, alt string) {
 		width="80"
 		height="80"
 		decoding="async"
-		class="w-20 h-20"
+		class="w-20 h-20 mx-4"
 		style="color: transparent;"
 	/>
 }
 
 templ TechStack() {
 	<section id="projects" class="tech-stack py-16-important bg-white dark:bg-sky-800 text-black dark:text-white text-center">
-		<h2 class="text-3xl font-bold">Tech Stack</h2>
-		<div class="mt-8 flex justify-center space-x-4">
-			@SvgLogo(templ.SafeURL("/public/csharp.svg"), "C# Logo")
-			@SvgLogo(templ.SafeURL("/public/net.svg"), ".NET Logo")
-			@SvgLogo(templ.SafeURL("/public/html.svg"), "HTML5 Logo")
-			@SvgLogo(templ.SafeURL("/public/css.svg"), "CSS3 Logo")
-			@SvgLogo(templ.SafeURL("/public/javascript.svg"), "JavaScript Logo")
-			@SvgLogo(templ.SafeURL("/public/tailwind.svg"), "Tailwind Logo")
-			@SvgLogo(templ.SafeURL("/public/git.svg"), "git Logo")
+		<h2 class="text-3xl font-bold mb-8">Tech Stack</h2>
+		<div class="carousel w-full overflow-x-auto lg:overflow-x-hidden">
+			<div class="carousel-inner flex lg:justify-center">
+				@carouselGroup()
+			</div>
 		</div>
 	</section>
+}
+
+templ carouselGroup() {
+	@carouselItem(templ.SafeURL("/public/csharp.svg"), "C# Logo")
+	@carouselItem(templ.SafeURL("/public/net.svg"), ".NET Logo")
+	@carouselItem(templ.SafeURL("/public/html.svg"), "HTML5 Logo")
+	@carouselItem(templ.SafeURL("/public/css.svg"), "CSS3 Logo")
+	@carouselItem(templ.SafeURL("/public/javascript.svg"), "JavaScript Logo")
+	@carouselItem(templ.SafeURL("/public/tailwind.svg"), "Tailwind Logo")
+	@carouselItem(templ.SafeURL("/public/git.svg"), "git Logo")
+}
+
+templ carouselItem(src templ.SafeURL, alt string) {
+	<div class="carousel-item flex-shrink-0 w-1/3 sm:w-1/4 md:w-1/5 lg:w-auto">
+		@SvgLogo(src, alt)
+	</div>
 }
 
 templ ProjectCard(title, description string, imgURL templ.SafeURL, demoURL templ.SafeURL, codeURL templ.SafeURL) {
