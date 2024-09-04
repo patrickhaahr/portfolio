@@ -1,6 +1,7 @@
 package handlers
 
 import (
+	"GOTH/theme"
 	"GOTH/views/home"
 	"net/http"
 	"strconv"
@@ -27,9 +28,9 @@ func ToggleIcon(w http.ResponseWriter, r *http.Request) error {
 		Path:  "/",
 	})
 
-	// Send a custom header to trigger a full page reload
-	w.Header().Set("HX-Refresh", "true")
-
-	// Render the entire page
-	return Render(w, r, home.Index(isDarkMode))
+	// Render only the new icon
+	if isDarkMode {
+		return theme.DarkModeIcon().Render(r.Context(), w)
+	}
+	return theme.LightModeIcon().Render(r.Context(), w)
 }

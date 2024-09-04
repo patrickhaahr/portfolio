@@ -15,12 +15,19 @@ templ Base(isDarkMode bool) {
 			<meta charset="UTF-8"/>
 			<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 			<link rel="stylesheet" href="/public/styles.css"/>
+			<script src="https://unpkg.com/hyperscript.org@0.9.12"></script>
 			<script src="https://unpkg.com/htmx.org@2.0.1" integrity="sha384-QWGpdj554B4ETpJJC9z+ZHJcA/i59TyjxEPXiiUgN2WmTyV5OEZWCD6gQhgkdpB/" crossorigin="anonymous"></script>
 		</head>
 		<body class="antialiased bg-white dark:bg-gray-900 text-black dark:text-white" hx-boost="true">
 			@components.Navigation(isDarkMode)
 			{ children... }
 			@components.Footer()
+			<script>
+    // Check the initial state and set the class accordingly
+    if (document.cookie.includes('darkMode=true')) {
+        document.documentElement.classList.add('dark');
+    }
+</script>
 		</body>
 	</html>
 }
