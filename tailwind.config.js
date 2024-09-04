@@ -59,10 +59,10 @@ module.exports = {
           display: 'flex !important',
         },
         '.hidden-xs-flex': {
-          '@media (max-width: 499px)': {
+          '@media (max-width: 599px)': {
             display: 'none !important',
           },
-          '@media (min-width: 500px)': {
+          '@media (min-width: 600px)': {
             display: 'flex !important',
           },
         },

@@ -1251,13 +1251,13 @@ video {
   box-shadow: 0 0 0px 1000px rgb(7 89 133 / var(--tw-bg-opacity)) inset;
 }
 
-@media (max-width: 499px) {
+@media (max-width: 599px) {
   .hidden-xs-flex {
     display: none !important;
   }
 }
 
-@media (min-width: 500px) {
+@media (min-width: 600px) {
   .hidden-xs-flex {
     display: flex !important;
   }
