@@ -46,13 +46,13 @@ templ TechStack() {
 }
 
 templ carouselGroup() {
-	@carouselItem(templ.SafeURL("/public/csharp.svg"), "C# Logo")
-	@carouselItem(templ.SafeURL("/public/net.svg"), ".NET Logo")
-	@carouselItem(templ.SafeURL("/public/javascript.svg"), "JavaScript Logo")
-	@carouselItem(templ.SafeURL("/public/html.svg"), "HTML5 Logo")
-	@carouselItem(templ.SafeURL("/public/css.svg"), "CSS3 Logo")
-	@carouselItem(templ.SafeURL("/public/tailwind.svg"), "Tailwind Logo")
-	@carouselItem(templ.SafeURL("/public/git.svg"), "git Logo")
+	@carouselItem(templ.SafeURL("/public/techstack/csharp.svg"), "C# Logo")
+	@carouselItem(templ.SafeURL("/public/techstack/net.svg"), ".NET Logo")
+	@carouselItem(templ.SafeURL("/public/techstack/javascript.svg"), "JavaScript Logo")
+	@carouselItem(templ.SafeURL("/public/techstack/html.svg"), "HTML5 Logo")
+	@carouselItem(templ.SafeURL("/public/techstack/css.svg"), "CSS3 Logo")
+	@carouselItem(templ.SafeURL("/public/techstack/tailwind.svg"), "Tailwind Logo")
+	@carouselItem(templ.SafeURL("/public/techstack/git.svg"), "git Logo")
 }
 
 templ carouselItem(src templ.SafeURL, alt string) {
@@ -91,28 +91,28 @@ templ Projects() {
 			@ProjectCard(
 				"Dating Web App",
 				"Responsive dating app made with C#, ASP.NET, and Tailwind",
-				templ.SafeURL("/public/tinder.svg"),
+				templ.SafeURL("/public/projectcards/tinder.svg"),
 				templ.URL("#"),
 				templ.URL("https://github.com/patrickhaahr/DatingApp"),
 			)
 			@ProjectCard(
 				"PinoyKusina",
 				"Filipino food ordering website made with JavaScript, HTML, and CSS",
-				templ.SafeURL("/public/foodwebsite.png"),
+				templ.SafeURL("/public/projectcards/foodwebsite.png"),
 				templ.URL("https://food-website-g088vdrhp-patrickhaahrs-projects.vercel.app/"),
 				templ.URL("https://github.com/patrickhaahr/FoodWebsite"),
 			)
 			@ProjectCard(
 				"Freelance Website (WIP)",
 				"Portfolio website of a client made with Go, Templ, Tailwind, HTMX",
-				templ.SafeURL("/public/blog.jpg"),
+				templ.SafeURL("/public/projectcards/blog.jpg"),
 				templ.URL("#"),
 				templ.URL("#"),
 			)
 			@ProjectCard(
 				"Events Website (WIP)",
 				"Responsive events website made with C#, ASP.NET, and Tailwind",
-				templ.SafeURL("/public/ticketmaster.jpg"),
+				templ.SafeURL("/public/projectcards/ticketmaster.jpg"),
 				templ.URL("#"),
 				templ.URL("https://github.com/patrickhaahr/EventsWebsite"),
 			)
