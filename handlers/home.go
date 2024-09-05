@@ -1,10 +1,11 @@
 package handlers
 
 import (
-	"GOTH/theme"
-	"GOTH/views/home"
 	"net/http"
 	"strconv"
+
+	"github.com/patrickhaahr/portfolio/theme"
+	"github.com/patrickhaahr/portfolio/views/home"
 )
 
 func HandleHome(w http.ResponseWriter, r *http.Request) error {

@@ -9,7 +9,7 @@ import (
 	"os"
 	"regexp"
 
-	"GOTH/views/home" // Import the home package to access the Alert template
+	"github.com/patrickhaahr/portfolio/views/home" // Import the home package to access the Alert template
 
 	"github.com/a-h/templ"
 	"github.com/joho/godotenv"

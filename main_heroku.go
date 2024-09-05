@@ -4,10 +4,11 @@
 package main
 
 import (
-	"GOTH/handlers"
 	"log"
 	"net/http"
 	"os"
+
+	"github.com/patrickhaahr/portfolio/handlers"
 
 	"github.com/go-chi/chi/v5"
 )
