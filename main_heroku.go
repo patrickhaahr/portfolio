@@ -23,9 +23,6 @@ func main() {
 	router.Get("/close-modal", handlers.Make(handlers.CloseModal))
 
 	port := os.Getenv("PORT")
-	if port == "" {
-		port = "3000"
-	}
 	log.Printf("Server starting on port %s", port)
 	http.ListenAndServe(":"+port, router)
 }
