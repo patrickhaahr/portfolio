@@ -26,11 +26,6 @@
 *.o
 *.test
 
-# Project-specific
-/views/components/navigation_templ.go
-/views/home/index_templ.go
-/views/layouts/base_templ.go
-
 # Tailwind CSS cache and config files
 .tailwindcss/
 
