@@ -13,10 +13,6 @@ import (
 	"github.com/go-chi/chi/v5"
 )
 
-func public() http.Handler {
-	return http.FileServer(http.Dir("public"))
-}
-
 func main() {
 	router := chi.NewMux()
 
