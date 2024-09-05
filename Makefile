@@ -6,6 +6,7 @@ build:
 
 build-heroku:
 	@go build -tags heroku -o bin/app
+	@cp -r public bin/
 
 css:
 	tailwindcss -i views/css/app.css -o public/styles.css --watch
