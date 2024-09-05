@@ -17,14 +17,24 @@ import (
 	"github.com/sendgrid/sendgrid-go/helpers/mail"
 )
 
+func getEnv(key, fallback string) string {
+	if value, exists := os.LookupEnv(key); exists {
+		return value
+	}
+	return fallback
+}
+
 func HandleContactForm(w http.ResponseWriter, r *http.Request) error {
-	if err := godotenv.Load(); err != nil {
-		log.Fatal("Error loading .env file")
+	// Load .env file only if not in production (Heroku)
+	if os.Getenv("HEROKU") != "true" {
+		if err := godotenv.Load(); err != nil {
+			log.Println("Error loading .env file")
+		}
 	}
 
-	from := mail.NewEmail("Portfolio Contact Form", os.Getenv("EMAIL_FROM"))
+	from := mail.NewEmail("Portfolio Contact Form", getEnv("EMAIL_FROM", ""))
 	subject := "New Message from Portfolio Contact Form"
-	to := mail.NewEmail("", os.Getenv("EMAIL_TO"))
+	to := mail.NewEmail("", getEnv("EMAIL_TO", ""))
 
 	name := r.FormValue("name")
 	email := r.FormValue("email")
@@ -49,6 +59,7 @@ func HandleContactForm(w http.ResponseWriter, r *http.Request) error {
 
 	return Render(w, r, home.Alert(true, "Your message has been sent successfully!"))
 }
+
 func CloseModal(w http.ResponseWriter, r *http.Request) error {
 	return Render(w, r, templ.ComponentFunc(func(ctx context.Context, w io.Writer) error {
 		_, err := w.Write([]byte(""))
