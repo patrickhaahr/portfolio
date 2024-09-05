@@ -14,3 +14,5 @@ require (
 )
 
 // +heroku goVersion go1.22
+
+replace GOTH => ./
