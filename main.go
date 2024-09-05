@@ -3,7 +3,6 @@ package main
 import (
 	"GOTH/handlers"
 	"log"
-	"log/slog"
 	"net/http"
 	"os"
 
@@ -23,7 +22,10 @@ func main() {
 	router.Post("/submit-form", handlers.Make(handlers.HandleContactForm))
 	router.Get("/close-modal", handlers.Make(handlers.CloseModal)) // Add this new line
 
-	listenAddr := os.Getenv("LISTEN_ADDR")
-	slog.Info("HTTP server started", "listenAddr", listenAddr)
-	http.ListenAndServe(listenAddr, router)
+	port := os.Getenv("PORT")
+	if port == "" {
+		port = "3000" // default port if not set
+	}
+	log.Printf("Server starting on port %s", port)
+	http.ListenAndServe(":"+port, router)
 }
