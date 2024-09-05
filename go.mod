@@ -1,4 +1,4 @@
-module github.com/patrickhaahr/portfolio
+module GOTH
 
 go 1.22.6
 

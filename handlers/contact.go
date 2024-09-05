@@ -9,7 +9,7 @@ import (
 	"os"
 	"regexp"
 
-	"github.com/patrickhaahr/portfolio/views/home"
+	"GOTH/views/home"
 
 	"github.com/a-h/templ"
 	"github.com/joho/godotenv"
