@@ -44,7 +44,7 @@ func Index(isDarkMode bool) templ.Component {
 			if templ_7745c5c3_Err != nil {
 				return templ_7745c5c3_Err
 			}
-			_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(" ")
+			templ_7745c5c3_Err = templ.WriteWatchModeString(templ_7745c5c3_Buffer, 1)
 			if templ_7745c5c3_Err != nil {
 				return templ_7745c5c3_Err
 			}
@@ -52,7 +52,7 @@ func Index(isDarkMode bool) templ.Component {
 			if templ_7745c5c3_Err != nil {
 				return templ_7745c5c3_Err
 			}
-			_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(" ")
+			templ_7745c5c3_Err = templ.WriteWatchModeString(templ_7745c5c3_Buffer, 2)
 			if templ_7745c5c3_Err != nil {
 				return templ_7745c5c3_Err
 			}
@@ -60,7 +60,7 @@ func Index(isDarkMode bool) templ.Component {
 			if templ_7745c5c3_Err != nil {
 				return templ_7745c5c3_Err
 			}
-			_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(" ")
+			templ_7745c5c3_Err = templ.WriteWatchModeString(templ_7745c5c3_Buffer, 3)
 			if templ_7745c5c3_Err != nil {
 				return templ_7745c5c3_Err
 			}
@@ -96,7 +96,7 @@ func Hero() templ.Component {
 			templ_7745c5c3_Var3 = templ.NopComponent
 		}
 		ctx = templ.ClearChildren(ctx)
-		_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString("<section class=\"hero flex flex-col justify-center items-center bg-white dark:bg-sky-800 text-black dark:text-white pt-52-important pb-44-important\"><div class=\"text-left px-8\"><p class=\"text-xl\">Hello, I'm</p><h1 class=\"text-4xl font-bold\">Patrick Haahr</h1><h2 class=\"text-xl font-bold\">a Software Developer</h2></div></section>")
+		templ_7745c5c3_Err = templ.WriteWatchModeString(templ_7745c5c3_Buffer, 4)
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
 		}
@@ -122,7 +122,7 @@ func SvgLogo(src templ.SafeURL, alt string) templ.Component {
 			templ_7745c5c3_Var4 = templ.NopComponent
 		}
 		ctx = templ.ClearChildren(ctx)
-		_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString("<img src=\"")
+		templ_7745c5c3_Err = templ.WriteWatchModeString(templ_7745c5c3_Buffer, 5)
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
 		}
@@ -135,7 +135,7 @@ func SvgLogo(src templ.SafeURL, alt string) templ.Component {
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
 		}
-		_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString("\" alt=\"")
+		templ_7745c5c3_Err = templ.WriteWatchModeString(templ_7745c5c3_Buffer, 6)
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
 		}
@@ -148,7 +148,7 @@ func SvgLogo(src templ.SafeURL, alt string) templ.Component {
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
 		}
-		_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString("\" fetchpriority=\"high\" width=\"80\" height=\"80\" decoding=\"async\" class=\"w-20 h-20 mx-4\" style=\"color: transparent;\">")
+		templ_7745c5c3_Err = templ.WriteWatchModeString(templ_7745c5c3_Buffer, 7)
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
 		}
@@ -174,7 +174,7 @@ func TechStack() templ.Component {
 			templ_7745c5c3_Var7 = templ.NopComponent
 		}
 		ctx = templ.ClearChildren(ctx)
-		_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString("<section id=\"projects\" class=\"tech-stack py-16-important bg-white dark:bg-sky-800 text-black dark:text-white text-center\"><h2 class=\"text-3xl font-bold mb-8\">Tech Stack</h2><div class=\"carousel w-full overflow-x-auto lg:overflow-x-hidden\"><div class=\"carousel-inner flex lg:justify-center\">")
+		templ_7745c5c3_Err = templ.WriteWatchModeString(templ_7745c5c3_Buffer, 8)
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
 		}
@@ -182,7 +182,7 @@ func TechStack() templ.Component {
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
 		}
-		_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString("</div></div></section>")
+		templ_7745c5c3_Err = templ.WriteWatchModeString(templ_7745c5c3_Buffer, 9)
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
 		}
@@ -258,7 +258,7 @@ func carouselItem(src templ.SafeURL, alt string) templ.Component {
 			templ_7745c5c3_Var9 = templ.NopComponent
 		}
 		ctx = templ.ClearChildren(ctx)
-		_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString("<div class=\"carousel-item\">")
+		templ_7745c5c3_Err = templ.WriteWatchModeString(templ_7745c5c3_Buffer, 10)
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
 		}
@@ -266,7 +266,7 @@ func carouselItem(src templ.SafeURL, alt string) templ.Component {
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
 		}
-		_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString("</div>")
+		templ_7745c5c3_Err = templ.WriteWatchModeString(templ_7745c5c3_Buffer, 11)
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
 		}
@@ -292,7 +292,7 @@ func ProjectCard(title, description string, imgURL templ.SafeURL, demoURL templ.
 			templ_7745c5c3_Var10 = templ.NopComponent
 		}
 		ctx = templ.ClearChildren(ctx)
-		_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString("<div class=\"relative flex w-80 flex-col rounded-xl bg-white dark:bg-sky-900 dark:text-white bg-clip-border text-gray-700 shadow-md h-[400px]\"><div class=\"relative mx-4 -mt-6 h-40 overflow-hidden rounded-xl bg-blue-gray-500 bg-clip-border text-white shadow-lg shadow-blue-gray-500/40 bg-gradient-to-r from-blue-500 to-blue-600\"><img src=\"")
+		templ_7745c5c3_Err = templ.WriteWatchModeString(templ_7745c5c3_Buffer, 12)
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
 		}
@@ -305,7 +305,7 @@ func ProjectCard(title, description string, imgURL templ.SafeURL, demoURL templ.
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
 		}
-		_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString("\" alt=\"")
+		templ_7745c5c3_Err = templ.WriteWatchModeString(templ_7745c5c3_Buffer, 13)
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
 		}
@@ -318,7 +318,7 @@ func ProjectCard(title, description string, imgURL templ.SafeURL, demoURL templ.
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
 		}
-		_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString("\" width=\"100%\" height=\"auto\" decoding=\"async\" class=\"w-full h-full object-cover\"></div><div class=\"p-6 flex flex-col flex-grow\"><h5 class=\"mb-2 block font-sans text-xl font-semibold leading-snug tracking-normal text-blue-gray-900 antialiased\">")
+		templ_7745c5c3_Err = templ.WriteWatchModeString(templ_7745c5c3_Buffer, 14)
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
 		}
@@ -331,7 +331,7 @@ func ProjectCard(title, description string, imgURL templ.SafeURL, demoURL templ.
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
 		}
-		_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString("</h5><p class=\"block font-sans text-base font-light leading-relaxed text-inherit antialiased flex-grow overflow-hidden\">")
+		templ_7745c5c3_Err = templ.WriteWatchModeString(templ_7745c5c3_Buffer, 15)
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
 		}
@@ -344,12 +344,12 @@ func ProjectCard(title, description string, imgURL templ.SafeURL, demoURL templ.
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
 		}
-		_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString("</p></div><div class=\"p-6 pt-0 flex space-x-2 mt-auto\">")
+		templ_7745c5c3_Err = templ.WriteWatchModeString(templ_7745c5c3_Buffer, 16)
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
 		}
 		if demoURL != "" {
-			_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString("<a href=\"")
+			templ_7745c5c3_Err = templ.WriteWatchModeString(templ_7745c5c3_Buffer, 17)
 			if templ_7745c5c3_Err != nil {
 				return templ_7745c5c3_Err
 			}
@@ -358,18 +358,18 @@ func ProjectCard(title, description string, imgURL templ.SafeURL, demoURL templ.
 			if templ_7745c5c3_Err != nil {
 				return templ_7745c5c3_Err
 			}
-			_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString("\" target=\"_blank\" rel=\"noopener noreferrer\" class=\"select-none rounded-lg bg-blue-500 py-3 px-6 text-center align-middle font-sans text-xs font-bold uppercase text-white shadow-md shadow-blue-500/20 transition-all hover:shadow-lg hover:shadow-blue-500/40 focus:opacity-[0.85] focus:shadow-none active:opacity-[0.85] active:shadow-none disabled:pointer-events-none disabled:opacity-50 disabled:shadow-none\">View Demo</a> ")
+			templ_7745c5c3_Err = templ.WriteWatchModeString(templ_7745c5c3_Buffer, 18)
 			if templ_7745c5c3_Err != nil {
 				return templ_7745c5c3_Err
 			}
 		} else {
-			_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString("<button class=\"select-none rounded-lg bg-blue-500 py-3 px-6 text-center align-middle font-sans text-xs font-bold uppercase text-white shadow-md shadow-blue-500/20 transition-all focus:opacity-[0.85] focus:shadow-none active:opacity-[0.85] active:shadow-none disabled:pointer-events-none disabled:opacity-50 disabled:shadow-none\" disabled>View Demo</button> ")
+			templ_7745c5c3_Err = templ.WriteWatchModeString(templ_7745c5c3_Buffer, 19)
 			if templ_7745c5c3_Err != nil {
 				return templ_7745c5c3_Err
 			}
 		}
 		if codeURL != "" {
-			_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString("<a href=\"")
+			templ_7745c5c3_Err = templ.WriteWatchModeString(templ_7745c5c3_Buffer, 20)
 			if templ_7745c5c3_Err != nil {
 				return templ_7745c5c3_Err
 			}
@@ -378,17 +378,17 @@ func ProjectCard(title, description string, imgURL templ.SafeURL, demoURL templ.
 			if templ_7745c5c3_Err != nil {
 				return templ_7745c5c3_Err
 			}
-			_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString("\" target=\"_blank\" rel=\"noopener noreferrer\" class=\"select-none rounded-lg bg-gray-500 dark:bg-sky-950 py-3 px-6 text-center align-middle font-sans text-xs font-bold uppercase text-white shadow-md shadow-gray-500/20 transition-all hover:shadow-lg hover:shadow-gray-500/40 focus:opacity-[0.85] focus:shadow-none active:opacity-[0.85] active:shadow-none disabled:pointer-events-none disabled:opacity-50 disabled:shadow-none\">Code</a>")
+			templ_7745c5c3_Err = templ.WriteWatchModeString(templ_7745c5c3_Buffer, 21)
 			if templ_7745c5c3_Err != nil {
 				return templ_7745c5c3_Err
 			}
 		} else {
-			_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString("<button class=\"select-none rounded-lg bg-gray-500 dark:bg-sky-950 py-3 px-6 text-center align-middle font-sans text-xs font-bold uppercase text-white shadow-md shadow-gray-500/20 transition-all focus:opacity-[0.85] focus:shadow-none active:opacity-[0.85] active:shadow-none disabled:pointer-events-none disabled:opacity-50 disabled:shadow-none\" disabled>Code</button>")
+			templ_7745c5c3_Err = templ.WriteWatchModeString(templ_7745c5c3_Buffer, 22)
 			if templ_7745c5c3_Err != nil {
 				return templ_7745c5c3_Err
 			}
 		}
-		_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString("</div></div>")
+		templ_7745c5c3_Err = templ.WriteWatchModeString(templ_7745c5c3_Buffer, 23)
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
 		}
@@ -414,14 +414,14 @@ func Projects() templ.Component {
 			templ_7745c5c3_Var17 = templ.NopComponent
 		}
 		ctx = templ.ClearChildren(ctx)
-		_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString("<section class=\"projects py-16 pb-32-important bg-white dark:bg-sky-800 text-black dark:text-white flex flex-col justify-center\"><div class=\"flex flex-wrap justify-around gap-8\">")
+		templ_7745c5c3_Err = templ.WriteWatchModeString(templ_7745c5c3_Buffer, 24)
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
 		}
 		templ_7745c5c3_Err = ProjectCard(
 			"Dating Web App",
-			"Responsive dating app made with C#, ASP.NET, and Tailwind",
-			templ.SafeURL("/public/projectcards/tinder.svg"),
+			"Full-stack dating application built with ASP.NET Blazor, Entity Framework Core, and Tailwind CSS, featuring user authentication, profile matching, and real-time messaging.",
+			templ.SafeURL("public/projectcards/dating.png"),
 			templ.URL(""),
 			templ.URL("https://github.com/patrickhaahr/DatingApp"),
 		).Render(ctx, templ_7745c5c3_Buffer)
@@ -430,8 +430,8 @@ func Projects() templ.Component {
 		}
 		templ_7745c5c3_Err = ProjectCard(
 			"PinoyKusina",
-			"Filipino food ordering website made with JavaScript, HTML, and CSS",
-			templ.SafeURL("/public/projectcards/PinoyKusina.png"),
+			"Developed a responsive Filipino food ordering website using JavaScript, HTML, and CSS. Features include a dynamic menu system, interactive shopping cart, and real-time order management.",
+			templ.SafeURL("public/projectcards/PinoyKusina.jpg"),
 			templ.URL("https://pinoykusina-8p2h8u2zq-haahr.vercel.app"),
 			templ.URL("https://github.com/patrickhaahr/PinoyKusina"),
 		).Render(ctx, templ_7745c5c3_Buffer)
@@ -439,26 +439,26 @@ func Projects() templ.Component {
 			return templ_7745c5c3_Err
 		}
 		templ_7745c5c3_Err = ProjectCard(
-			"Freelance Website (WIP)",
-			"Portfolio website of a client made with Go, Templ, Tailwind, HTMX",
-			templ.SafeURL("/public/projectcards/blog.jpg"),
+			"Pong game",
+			"Showcased at several school events with over 100 participants from various schools. Made with C# and Unity",
+			templ.SafeURL("public/projectcards/pong.jpg"),
 			templ.URL(""),
-			templ.URL(""),
+			templ.URL("https://github.com/patrickhaahr/PongGame"),
 		).Render(ctx, templ_7745c5c3_Buffer)
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
 		}
 		templ_7745c5c3_Err = ProjectCard(
 			"Events Website (WIP)",
-			"Responsive events website made with C#, ASP.NET, and Tailwind",
-			templ.SafeURL("/public/projectcards/ticketmaster.jpg"),
+			"Full-stack event management application built with Blazor in ASP.NET Core, Entity Framework Core, and TailwindCSS, featuring event creation, registration, and JWT-based authentication",
+			templ.SafeURL("public/projectcards/Events.png"),
 			templ.URL(""),
 			templ.URL("https://github.com/patrickhaahr/EventsWebsite"),
 		).Render(ctx, templ_7745c5c3_Buffer)
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
 		}
-		_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString("</div></section>")
+		templ_7745c5c3_Err = templ.WriteWatchModeString(templ_7745c5c3_Buffer, 25)
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
 		}
@@ -484,7 +484,7 @@ func ContactForm() templ.Component {
 			templ_7745c5c3_Var18 = templ.NopComponent
 		}
 		ctx = templ.ClearChildren(ctx)
-		_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString("<section id=\"contact-me\" class=\"contact-form bg-white dark:bg-sky-800 text-black dark:text-white py-24-important relative\"><div class=\"max-w-lg mx-auto bg-white dark:bg-sky-900 p-6 rounded-xl shadow-lg\"><h2 class=\"text-3xl font-bold text-royalblue\">Contact me</h2><form class=\"flex flex-col items-start gap-4 mt-4\" hx-post=\"/submit-form\" hx-target=\"body\" hx-swap=\"afterbegin\"><input type=\"text\" name=\"name\" placeholder=\"Your Name\" required class=\"outline-none border border-gray-300 dark:border-sky-950 p-2 rounded-lg w-full h-12 bg-white dark:bg-sky-800 text-black dark:text-white dark-autofill\" autocomplete=\"name\"> <input type=\"email\" name=\"email\" placeholder=\"Your email\" required pattern=\"[a-z0-9._%+-]+@[a-z0-9.-]+\\.[a-z]{2,}$\" class=\"outline-none border border-gray-300 dark:border-sky-950 p-2 rounded-lg w-full h-12 bg-white dark:bg-sky-800 text-black dark:text-white dark-autofill\" autocomplete=\"email\"> <textarea name=\"message\" placeholder=\"Your message\" required class=\"outline-none border border-gray-300 dark:border-sky-950 p-2 rounded-lg w-full h-24 resize-none bg-white dark:bg-sky-800 text-black dark:text-white dark-autofill\" autocomplete=\"off\"></textarea> <button class=\"self-start group cursor-pointer border-2 border-gray-300 bg-blue-500 py-2 px-4 font-bold rounded-xl shadow-md text-white\" type=\"submit\"><div class=\"flex bg-blue-500 rounded-full px-3 py-2 shadow-inner\"><svg stroke=\"currentColor\" stroke-width=\"1.5\" viewBox=\"0 0 24 24\" fill=\"none\" xmlns=\"http://www.w3.org/2000/svg\" class=\"size-6 -rotate-45 mr-1 group-hover:rotate-0 duration-300\"><path d=\"M6 12 3.269 3.125A59.769 59.769 0 0 1 21.485 12 59.768 59.768 0 0 1 3.27 20.875L5.999 12Zm0 0h7.5\" stroke-linejoin=\"round\" stroke-linecap=\"round\"></path></svg> <span class=\"group-hover:translate-x-1.5 group-hover:duration-300\">Send Message</span></div></button></form></div><div id=\"alert-modal-container\"></div></section>")
+		templ_7745c5c3_Err = templ.WriteWatchModeString(templ_7745c5c3_Buffer, 26)
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
 		}
@@ -510,7 +510,7 @@ func Alert(isSuccess bool, message string) templ.Component {
 			templ_7745c5c3_Var19 = templ.NopComponent
 		}
 		ctx = templ.ClearChildren(ctx)
-		_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString("<div id=\"alert-modal\" class=\"fixed top-20 left-1/2 transform -translate-x-1/2 z-50\" hx-target=\"this\" hx-swap=\"outerHTML\" hx-trigger=\"click from:body\" hx-get=\"/close-modal\"><div class=\"relative w-full max-w-md rounded-lg bg-white dark:bg-gray-800 p-6 shadow-xl\" hx-stop-propagation=\"click\" onclick=\"event.stopPropagation();\"><button class=\"absolute top-2 right-2 text-gray-500 hover:text-gray-700 dark:text-gray-400 dark:hover:text-gray-200\" hx-get=\"/close-modal\" hx-target=\"#alert-modal\" hx-swap=\"outerHTML\"><svg xmlns=\"http://www.w3.org/2000/svg\" class=\"h-6 w-6\" fill=\"none\" viewBox=\"0 0 24 24\" stroke=\"currentColor\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M6 18L18 6M6 6l12 12\"></path></svg></button>")
+		templ_7745c5c3_Err = templ.WriteWatchModeString(templ_7745c5c3_Buffer, 27)
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
 		}
@@ -519,7 +519,7 @@ func Alert(isSuccess bool, message string) templ.Component {
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
 		}
-		_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString("<p class=\"")
+		templ_7745c5c3_Err = templ.WriteWatchModeString(templ_7745c5c3_Buffer, 28)
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
 		}
@@ -532,7 +532,7 @@ func Alert(isSuccess bool, message string) templ.Component {
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
 		}
-		_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString("\">")
+		templ_7745c5c3_Err = templ.WriteWatchModeString(templ_7745c5c3_Buffer, 29)
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
 		}
@@ -545,7 +545,7 @@ func Alert(isSuccess bool, message string) templ.Component {
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
 		}
-		_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString("</p></div></div>")
+		templ_7745c5c3_Err = templ.WriteWatchModeString(templ_7745c5c3_Buffer, 30)
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
 		}
