@@ -1,5 +1,5 @@
-//go:build !dev && !heroku
-// +build !dev,!heroku
+//go:build !dev
+// +build !dev
 
 package main
 
@@ -12,5 +12,5 @@ import (
 var publicFS embed.FS
 
 func public() http.Handler {
-	return http.FileServer(http.FS(publicFS))
+	return http.FileServerFS(publicFS)
 }
